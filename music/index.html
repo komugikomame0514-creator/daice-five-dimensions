@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Da-iCE楽曲を検索・分類して楽しむ非公式ファンデータベース">
+  <title>MUSIC DATABASE | FIVE DIMENSIONS</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/music.css">
+</head>
+<body>
+  <nav class="site-nav scrolled">
+    <div class="container nav-inner">
+      <a href="../" class="nav-brand"><img src="../assets/logos/daice-symbol.svg" alt=""><span>Da-iCE</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../">TOP</a><a href="../#about">ABOUT</a><a href="../#members">MEMBER</a>
+        <a class="active" href="./">MUSIC</a><a href="../#history">HISTORY</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="music-page">
+    <div class="container">
+      <header class="music-hero reveal">
+        <div><div class="eyebrow">MUSIC DATABASE / VER. 4.0</div><h1>ENTER<br><span>THE SOUND</span></h1></div>
+        <p class="music-intro">Da-iCEの楽曲を、タイトルや雰囲気から探せるファンメイド・ミュージックデータベース。まずは代表的な15曲から始まり、今後さらに追加していきます。</p>
+      </header>
+
+      <section class="music-tools">
+        <input id="songSearch" class="music-search" type="search" placeholder="曲名・雰囲気で検索">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="live">LIVE</button>
+        <button class="filter-btn" data-filter="dance">DANCE</button>
+        <button class="filter-btn" data-filter="emotional">EMOTIONAL</button>
+        <button class="filter-btn" data-filter="pop">POP</button>
+        <button class="filter-btn" data-filter="dark">DARK</button>
+        <span class="song-count" id="songCount">15 SONGS</span>
+      </section>
+
+      <div class="song-grid">
+        <article class="song-card reveal" data-title="CITRUS" data-tags="emotional vocal">
+      <div class="song-art" style="--art:radial-gradient(circle at 30% 65%,#d97706 0 16%,transparent 17%),linear-gradient(135deg,#4c2d13,#090706)"><h2>CITRUS</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2020</span><span>EMOTIONAL / VOCAL</span></div>
+        <div class="song-tags"><span>EMOTIONAL</span><span>VOCAL</span></div>
+        <p class="song-copy">静けさと爆発力を併せ持つ、ツインボーカルの存在感を刻んだ一曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/watch?v=ye1YacA8HvE" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="スターマイン" data-tags="live dance">
+      <div class="song-art" style="--art:radial-gradient(circle at 52% 54%,#fff 0 1%,#ff9d00 2%,transparent 5%),radial-gradient(circle at 52% 54%,transparent 0 14%,#ef233c 15%,transparent 16%),linear-gradient(145deg,#151b3e,#140719)"><h2>スターマイン</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2022</span><span>LIVE / FESTIVAL</span></div>
+        <div class="song-tags"><span>LIVE</span><span>DANCE</span></div>
+        <p class="song-copy">言葉遊びと圧倒的な熱量で、会場を一瞬で巻き込むライブアンセム。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/watch?v=YB_St-YN3Y8" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="I wonder" data-tags="dance pop">
+      <div class="song-art" style="--art:linear-gradient(90deg,transparent 48%,#2aa9ff 49%,transparent 51%),linear-gradient(transparent 48%,#2aa9ff 49%,transparent 51%),radial-gradient(circle,#15375c,#050713)"><h2>I wonder</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2024</span><span>POP / DANCE</span></div>
+        <div class="song-tags"><span>DANCE</span><span>POP</span></div>
+        <p class="song-copy">色彩と感情が交差し、歌と振付がひとつの物語になる。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+I+wonder+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="Kartell" data-tags="dark message">
+      <div class="song-art" style="--art:conic-gradient(from 45deg,#222,#060606,#353535,#050505,#222)"><h2>Kartell</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2021</span><span>DARK / MESSAGE</span></div>
+        <div class="song-tags"><span>DARK</span><span>MESSAGE</span></div>
+        <p class="song-copy">鋭いメッセージと重厚なサウンドが、Da-iCEの別の顔を映し出す。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+Kartell+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="BACK TO BACK" data-tags="dance dark">
+      <div class="song-art" style="--art:repeating-linear-gradient(45deg,#171717 0 14px,#050505 14px 28px)"><h2>BACK TO BACK</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2019</span><span>DANCE / EDGE</span></div>
+        <div class="song-tags"><span>DANCE</span><span>DARK</span></div>
+        <p class="song-copy">緊張感のあるビートと精密なパフォーマンスを味わえるダンスナンバー。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+BACK+TO+BACK+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="DREAMIN' ON" data-tags="live pop">
+      <div class="song-art" style="--art:linear-gradient(135deg,#ff4b2b,#ff416c,#35164a)"><h2>DREAMIN' ON</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2020</span><span>LIVE / POP</span></div>
+        <div class="song-tags"><span>LIVE</span><span>POP</span></div>
+        <p class="song-copy">前へ進む力を届ける、疾走感あふれるエネルギッシュな楽曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+DREAMIN+ON+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="ダンデライオン" data-tags="emotional pop">
+      <div class="song-art" style="--art:radial-gradient(circle at 65% 30%,#ffe66d 0 5%,transparent 6%),linear-gradient(145deg,#5f7a2f,#171d0e)"><h2>ダンデライオン</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2023</span><span>EMOTIONAL / POP</span></div>
+        <div class="song-tags"><span>EMOTIONAL</span><span>POP</span></div>
+        <p class="song-copy">優しさと切なさを抱えながら、まっすぐ未来へ向かう歌。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+ダンデライオン+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="Clap and Clap" data-tags="live dance">
+      <div class="song-art" style="--art:radial-gradient(circle at 20% 30%,#ffcc00,transparent 16%),radial-gradient(circle at 78% 70%,#00d4ff,transparent 18%),linear-gradient(135deg,#6725aa,#111)"><h2>Clap and Clap</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2022</span><span>LIVE / DANCE</span></div>
+        <div class="song-tags"><span>LIVE</span><span>DANCE</span></div>
+        <p class="song-copy">手拍子とともに会場がひとつになる、明るく開放的な一曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+Clap+and+Clap+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="FAKESHOW" data-tags="dance dark">
+      <div class="song-art" style="--art:linear-gradient(120deg,#151515 0 45%,#9c0015 46% 53%,#050505 54%)"><h2>FAKESHOW</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2018</span><span>DANCE / DARK</span></div>
+        <div class="song-tags"><span>DANCE</span><span>DARK</span></div>
+        <p class="song-copy">スリリングな展開と、鋭く攻めるパフォーマンスが魅力。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+FAKESHOW+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="恋ごころ" data-tags="emotional ballad">
+      <div class="song-art" style="--art:linear-gradient(145deg,#5b1832,#170710)"><h2>恋ごころ</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2016</span><span>BALLAD / EMOTIONAL</span></div>
+        <div class="song-tags"><span>EMOTIONAL</span><span>BALLAD</span></div>
+        <p class="song-copy">繊細な感情を丁寧にすくい取る、歌声をじっくり聴きたい一曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+恋ごころ+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="わるぐち" data-tags="pop emotional">
+      <div class="song-art" style="--art:radial-gradient(circle at 30% 25%,#e2b6c8,transparent 22%),linear-gradient(145deg,#4a2034,#0b0709)"><h2>わるぐち</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2018</span><span>POP / EMOTIONAL</span></div>
+        <div class="song-tags"><span>POP</span><span>EMOTIONAL</span></div>
+        <p class="song-copy">日常の言葉の中に複雑な恋心を映した、親密な空気を持つ楽曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+わるぐち+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="パラダイブ" data-tags="summer live">
+      <div class="song-art" style="--art:linear-gradient(#0caadc,#085579 55%,#e7bc6b 56%,#6c431f)"><h2>パラダイブ</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2016</span><span>SUMMER / LIVE</span></div>
+        <div class="song-tags"><span>SUMMER</span><span>LIVE</span></div>
+        <p class="song-copy">夏の景色と高揚感をそのままステージへ運ぶ爽快なナンバー。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+パラダイブ+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="君色" data-tags="pop dance">
+      <div class="song-art" style="--art:linear-gradient(135deg,#00c6ff,#ff4ecd,#ffe66d)"><h2>君色</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2017</span><span>POP / DANCE</span></div>
+        <div class="song-tags"><span>POP</span><span>DANCE</span></div>
+        <p class="song-copy">カラフルな世界観と軽快なリズムで魅せるポップチューン。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+君色+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="TOKYO MERRY GO ROUND" data-tags="dance pop">
+      <div class="song-art" style="--art:radial-gradient(circle at 50% 50%,#ff2e63,transparent 16%),conic-gradient(#10152c,#302067,#10152c)"><h2>TOKYO MERRY GO ROUND</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2018</span><span>DANCE / POP</span></div>
+        <div class="song-tags"><span>DANCE</span><span>POP</span></div>
+        <p class="song-copy">都会的なきらめきと遊び心を詰め込んだスタイリッシュな一曲。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+TOKYO+MERRY+GO+ROUND+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article><article class="song-card reveal" data-title="Live goes on" data-tags="live emotional">
+      <div class="song-art" style="--art:linear-gradient(135deg,#332b24,#846b4e,#111)"><h2>Live goes on</h2></div>
+      <div class="song-info">
+        <div class="song-meta"><span>2014</span><span>LIVE / EMOTIONAL</span></div>
+        <div class="song-tags"><span>LIVE</span><span>EMOTIONAL</span></div>
+        <p class="song-copy">歩み続ける意志と、ライブで積み重ねてきた時間を感じさせる歌。</p>
+        <div class="song-actions"><span></span><a class="youtube-link" href="https://www.youtube.com/results?search_query=Da-iCE+Live+goes+on+official" target="_blank" rel="noopener"><span class="youtube-icon"></span>OFFICIAL VIDEO</a></div>
+      </div>
+    </article>
+      </div>
+      <div class="no-results" id="noResults">条件に一致する楽曲が見つかりませんでした。</div>
+    </div>
+  </main>
+
+  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — MUSIC DATABASE</span><span>VER. 4.0 / 2026</span></div></footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/music.js"></script>
+</body>
+</html>
