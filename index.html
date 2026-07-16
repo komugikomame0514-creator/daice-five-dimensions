@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Da-iCEを応援する非公式ファンメイドサイト FIVE DIMENSIONS">
+  <title>FIVE DIMENSIONS | Da-iCE Unofficial Fan Site</title>
+  <style>
+    :root{
+      --bg:#030303;--panel:#0b0b0c;--text:#f4f1ee;--muted:#9f9b98;
+      --line:rgba(255,255,255,.13);--red:#df001b;
+      --serif:"Times New Roman","Yu Mincho","Hiragino Mincho ProN",serif;
+      --sans:Inter,"Helvetica Neue","Noto Sans JP",Arial,sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--text);background:#030303;font-family:var(--sans);overflow-x:hidden}
+    body.lock{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit;color:inherit}
+    img{max-width:100%;display:block} ::selection{background:var(--red);color:#fff}
+    .container{width:min(1220px,calc(100% - 42px));margin:auto}
+    .section{padding:110px 0;position:relative}
+    .eyebrow{font-size:.68rem;letter-spacing:.34em;color:var(--red);text-transform:uppercase}
+    .section-title{font-family:var(--serif);font-size:clamp(2.8rem,7vw,6.5rem);font-weight:400;line-height:.9;letter-spacing:.08em;margin:15px 0 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:45px;margin-bottom:48px}
+    .lead{max-width:560px;color:var(--muted);line-height:2;font-size:.94rem}
+
+    #opening{position:fixed;inset:0;z-index:999;display:grid;place-items:center;background:#fff;transition:opacity 1s,visibility 1s}
+    #opening.hide{opacity:0;visibility:hidden}
+    .opening-symbol{width:min(220px,46vw);opacity:0;transform:scale(.8);animation:logoIn 1s .1s forwards}
+    @keyframes logoIn{to{opacity:1;transform:scale(1)}}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid transparent;transition:.3s}
+    nav.scrolled{background:rgba(2,2,2,.9);backdrop-filter:blur(15px);border-color:var(--line)}
+    .nav-inner{height:86px;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{display:flex;align-items:center;gap:12px}
+    .nav-brand img{width:42px;height:42px;object-fit:contain}
+    .nav-brand span{font-family:var(--serif);font-size:1.5rem;letter-spacing:.06em}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-family:var(--serif);font-size:.76rem;letter-spacing:.25em;position:relative;padding:8px 0}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--red);transition:.25s}
+    .nav-links a:hover::after{width:100%}
+    .menu-btn{display:none;background:none;border:0;width:40px;height:40px;position:relative;cursor:pointer}
+    .menu-btn span{position:absolute;left:7px;width:26px;height:1px;background:#fff;transition:.3s}
+    .menu-btn span:nth-child(1){top:13px}.menu-btn span:nth-child(2){top:20px}.menu-btn span:nth-child(3){top:27px}
+    .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    .hero{min-height:100svh;position:relative;overflow:hidden;display:grid;place-items:center;padding:120px 0 65px;
+      background:radial-gradient(ellipse at 50% 84%,rgba(230,0,30,.18),transparent 45%),linear-gradient(to bottom,#050608 0%,#050608 60%,#080305 100%)}
+    .stage-floor{position:absolute;left:-10%;right:-10%;bottom:-14%;height:43%;transform:perspective(450px) rotateX(64deg);transform-origin:center top;
+      background:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(140,0,14,.18),#030303);
+      background-size:58px 58px,58px 58px,auto;opacity:.68}
+    .spotlights{position:absolute;inset:0;pointer-events:none}.spot{position:absolute;top:-6%;width:12%;height:77%;
+      background:linear-gradient(to bottom,rgba(255,255,255,.36),rgba(255,255,255,.05) 36%,transparent 78%);
+      clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);filter:blur(5px);opacity:.65}
+    .spot:nth-child(1){left:17%;transform:rotate(7deg)}.spot:nth-child(2){left:31%;transform:rotate(3deg)}.spot:nth-child(3){left:44%}
+    .spot:nth-child(4){left:57%;transform:rotate(-3deg)}.spot:nth-child(5){left:70%;transform:rotate(-7deg)}
+    .red-beams{position:absolute;left:0;right:0;bottom:0;height:47%;
+      background:linear-gradient(19deg,transparent 42%,rgba(240,0,25,.42) 43%,transparent 44%),linear-gradient(-19deg,transparent 42%,rgba(240,0,25,.42) 43%,transparent 44%);
+      filter:blur(4px);opacity:.8}
+    .hero-content{position:relative;z-index:4;text-align:center;display:flex;flex-direction:column;align-items:center}
+    .hero-symbol{width:clamp(130px,14vw,190px);margin-bottom:12px;filter:drop-shadow(0 0 18px rgba(255,255,255,.16))}
+    .hero-name{font-family:var(--serif);font-size:clamp(4.4rem,10vw,8.5rem);line-height:.88;font-weight:400;letter-spacing:.04em;margin:0}
+    .hero-sub{font-family:var(--serif);font-size:clamp(.9rem,1.7vw,1.35rem);letter-spacing:.46em;margin-top:26px}
+    .hero-jp{margin-top:27px;letter-spacing:.28em;color:#ddd;font-family:var(--serif);font-size:.94rem}
+    .hero-scroll{margin-top:53px;font-size:.64rem;letter-spacing:.35em;color:#aaa;display:flex;flex-direction:column;align-items:center;gap:12px}
+    .hero-scroll::after{content:"";width:1px;height:56px;background:linear-gradient(var(--red),transparent)}
+    .side-copy{position:absolute;z-index:3;top:50%;font-family:var(--serif);font-size:.6rem;letter-spacing:.32em;color:#b9b9b9;writing-mode:vertical-rl}
+    .side-copy.left{left:25px;transform:translateY(-50%) rotate(180deg)}.side-copy.right{right:25px;transform:translateY(-50%)}
+
+    .about-grid{display:grid;grid-template-columns:1fr 1.1fr;min-height:500px;border:1px solid var(--line);background:#080808}
+    .about-copy{padding:60px;display:flex;flex-direction:column;justify-content:center}
+    .about-copy .script{color:var(--red);font-family:cursive;font-size:2rem;margin:18px 0}
+    .about-copy p{line-height:2;color:#c2c2c2}
+    .outline-btn{align-self:flex-start;margin-top:18px;padding:14px 26px;border:1px solid var(--red);font-size:.65rem;letter-spacing:.23em;transition:.25s}
+    .outline-btn:hover{background:var(--red)}
+    .about-visual{position:relative;overflow:hidden;background:#111}
+    .about-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .about-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.45),transparent 40%)}
+
+    .member-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+    .member-card{position:relative;min-height:465px;overflow:hidden;border:1px solid var(--line);background:#0c0c0d;cursor:pointer;transition:.35s}
+    .member-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.46)}
+    .member-photo{
+      position:absolute;inset:-2px;width:calc(100% + 4px);height:calc(100% + 4px);
+      object-fit:cover;display:block;transform:scale(1.035);
+      background:#111;
+    }
+    .member-card[data-member="taiki"] .member-photo{object-position:50% 25%}
+    .member-card[data-member="toru"] .member-photo{object-position:50% 20%}
+    .member-card[data-member="yudai"] .member-photo{object-position:50% 18%}
+    .member-card[data-member="sota"] .member-photo{object-position:50% 20%}
+    .member-card[data-member="hayate"] .member-photo{object-position:50% 18%}
+    .member-shade{position:absolute;inset:0;background:linear-gradient(to top,#030303 0%,rgba(3,3,3,.92) 18%,transparent 64%)}
+    .member-info{position:absolute;left:22px;right:22px;bottom:22px}
+    .member-en{font-family:var(--serif);font-size:1.03rem;letter-spacing:.13em}
+    .member-jp{margin-top:7px;color:#aaa;font-size:.78rem;letter-spacing:.18em}
+    .member-role{margin-top:16px;color:var(--red);font-size:.58rem;letter-spacing:.26em}
+    .view-more{display:inline-block;margin-top:14px;border:1px solid rgba(255,255,255,.25);padding:9px 13px;font-size:.55rem;letter-spacing:.2em}
+
+    .music-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+    .music-card{background:#080809;border:1px solid var(--line);transition:.35s;overflow:hidden}
+    .music-card:hover{transform:translateY(-7px);border-color:rgba(223,0,27,.75)}
+    .cover{aspect-ratio:1;position:relative;overflow:hidden;display:grid;place-items:center}
+    .cover.citrus{background:radial-gradient(circle at 35% 70%,#bf5b09 0 12%,#f8a640 12.5% 15%,transparent 15.5%),radial-gradient(circle at 52% 42%,rgba(255,215,127,.28),transparent 20%),linear-gradient(145deg,#4a321b,#080705)}
+    .cover.star{background:radial-gradient(circle at 50% 55%,#fff 0 1%,#ffb20b 2%,transparent 4%),radial-gradient(circle at 50% 55%,transparent 0 8%,rgba(255,80,20,.8) 8.5% 9%,transparent 9.5%),linear-gradient(160deg,#111b38,#0e0616)}
+    .cover.wonder{background:linear-gradient(90deg,transparent 48%,rgba(0,188,255,.7) 49%,transparent 51%),linear-gradient(transparent 48%,rgba(0,188,255,.7) 49%,transparent 51%),radial-gradient(circle,#102b48,#050712);background-size:44px 44px,44px 44px,auto}
+    .cover.kartell{background:radial-gradient(circle,#4c4c4c 0 2%,transparent 2.5%),linear-gradient(145deg,#161616,#020202);background-size:18px 18px,auto}
+    .cover.back{background:repeating-linear-gradient(45deg,#131313 0 12px,#050505 12px 24px)}
+    .cover-title{position:relative;z-index:2;font-family:var(--serif);font-size:clamp(1rem,2vw,1.65rem);letter-spacing:.08em;text-align:center;text-shadow:0 2px 18px #000}
+    .music-meta{padding:17px}.music-meta h3{font-family:var(--serif);font-size:1rem;margin:0 0 7px;font-weight:400}.music-meta small{color:#777}
+    .music-bottom{display:flex;justify-content:flex-end;align-items:center;margin-top:14px}
+    .play{width:34px;height:34px;border-radius:50%;border:1px solid #aaa;display:grid;place-items:center;transition:.2s}
+    .play::before{content:"";border-left:7px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+    .play:hover{background:var(--red);border-color:var(--red)}
+
+    .history-wrap{overflow-x:auto;padding:12px 0 24px}.history-line{min-width:980px;display:grid;grid-template-columns:repeat(6,1fr);position:relative;padding-top:35px}
+    .history-line::before{content:"";position:absolute;left:3%;right:3%;top:41px;height:1px;background:#555}
+    .history-item{text-align:center;position:relative;padding:20px 15px 0}.history-item::before{content:"";position:absolute;top:2px;left:50%;transform:translateX(-50%) rotate(45deg);width:9px;height:9px;background:var(--red)}
+    .history-item strong{font-family:var(--serif);font-size:1.55rem;font-weight:400}.history-item span{display:block;color:#aaa;font-size:.7rem;margin-top:8px;line-height:1.6}
+    .notice{border:1px solid var(--line);padding:50px;background:linear-gradient(130deg,#101011,#070707)}
+    .notice h3{font-family:var(--serif);font-size:2rem;font-weight:400;letter-spacing:.06em}
+    footer{padding:30px 0;border-top:1px solid var(--line);font-size:.65rem;color:#777;letter-spacing:.11em}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+    .modal{
+      position:fixed;inset:0;z-index:400;
+      background:rgba(0,0,0,.92);backdrop-filter:blur(14px);
+      opacity:0;visibility:hidden;transition:.35s;
+      overflow:auto;
+    }
+    .modal.open{opacity:1;visibility:visible}
+    .modal-panel{
+      width:100%;min-height:100svh;
+      display:grid;grid-template-columns:minmax(320px,42vw) 1fr;
+      background:#050505;position:relative;
+    }
+    .modal-visual{position:relative;min-height:100svh;overflow:hidden;background:#111}
+    .modal-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+    .modal-visual::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg,transparent 58%,#050505 100%),
+                 linear-gradient(to top,rgba(0,0,0,.78),transparent 42%);
+    }
+    .modal-number{
+      position:absolute;left:34px;bottom:28px;z-index:2;
+      font-family:var(--serif);font-size:clamp(5rem,11vw,10rem);
+      line-height:.75;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.4);
+    }
+    .modal-content{
+      min-height:100svh;padding:95px clamp(34px,6vw,92px) 65px;
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .close{
+      position:fixed;right:28px;top:24px;z-index:5;
+      width:48px;height:48px;border:1px solid rgba(255,255,255,.28);
+      background:rgba(0,0,0,.35);cursor:pointer;font-size:1.6rem;
+      transition:.25s;
+    }
+    .close:hover{background:#fff;color:#000}
+    .modal-role{color:var(--red);font-size:.65rem;letter-spacing:.34em}
+    .modal-catch{
+      font-family:var(--serif);font-size:clamp(1.35rem,2.5vw,2.25rem);
+      line-height:1.45;margin:20px 0 24px;max-width:760px;
+    }
+    .modal h3{
+      font-family:var(--serif);font-size:clamp(3.3rem,7vw,7rem);
+      font-weight:400;line-height:.9;margin:0 0 10px;letter-spacing:.02em;
+    }
+    .modal-en{color:#888;letter-spacing:.23em;font-size:.72rem}
+    .modal-divider{width:80px;height:1px;background:var(--red);margin:34px 0}
+    .modal-text{color:#c1c1c1;line-height:2;max-width:760px;margin:0}
+    .member-detail-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:12px;margin-top:38px;max-width:820px;
+    }
+    .detail-box{border:1px solid var(--line);padding:20px;min-height:126px;background:rgba(255,255,255,.025)}
+    .detail-box small{display:block;color:var(--red);letter-spacing:.2em;font-size:.56rem;margin-bottom:12px}
+    .detail-box strong{font-family:var(--serif);font-weight:400;font-size:1.03rem;line-height:1.55}
+    .modal-nav{
+      display:flex;gap:12px;margin-top:36px;
+    }
+    .modal-nav button{
+      border:1px solid var(--line);background:transparent;padding:13px 20px;
+      cursor:pointer;font-size:.62rem;letter-spacing:.19em;transition:.25s;
+    }
+    .modal-nav button:hover{border-color:var(--red);color:var(--red)}
+    .reveal{opacity:0;transform:translateY(35px);transition:opacity .85s,transform .85s}.reveal.show{opacity:1;transform:none}
+    @media(max-width:980px){.member-strip{grid-template-columns:repeat(2,1fr)}.member-card:last-child{grid-column:1/-1}.music-row{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.about-visual{min-height:420px}.section-head{align-items:flex-start;flex-direction:column}}
+    @media(max-width:820px){
+      .modal-panel{grid-template-columns:1fr}
+      .modal-visual{min-height:62svh}
+      .modal-content{min-height:auto;padding:58px 24px 70px}
+      .modal-visual::after{background:linear-gradient(to bottom,transparent 55%,#050505 100%)}
+      .member-detail-grid{grid-template-columns:1fr}
+      .close{right:14px;top:14px}
+    }
+    @media(max-width:720px){.nav-links{position:fixed;inset:86px 0 auto 0;background:rgba(2,2,2,.97);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:0;transform:translateY(-130%);transition:.35s}.nav-links.open{transform:none}.nav-links a{width:100%;padding:22px;text-align:center;border-top:1px solid var(--line)}.menu-btn{display:block}.hero-name{font-size:18vw}.hero-sub{letter-spacing:.25em}.side-copy{display:none}.section{padding:85px 0}.about-copy{padding:38px 25px}.member-strip,.music-row{grid-template-columns:1fr}.member-card:last-child{grid-column:auto}.member-card{min-height:560px}.notice{padding:32px 24px}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div id="opening"><img src="assets/daice-symbol.png" class="opening-symbol" alt="Da-iCE symbol"></div>
+  <nav id="nav"><div class="container nav-inner">
+    <a href="#top" class="nav-brand"><img src="assets/daice-symbol.png" alt=""><span>Da-iCE</span></a>
+    <div class="nav-links" id="navLinks"><a href="#top">TOP</a><a href="#about">ABOUT</a><a href="#members">MEMBER</a><a href="#music">MUSIC</a><a href="#history">HISTORY</a></div>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div></nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="spotlights"><div class="spot"></div><div class="spot"></div><div class="spot"></div><div class="spot"></div><div class="spot"></div></div>
+      <div class="red-beams"></div><div class="stage-floor"></div>
+      <div class="side-copy left">FIVE SENSES / TWO VOICES / ONE STORY</div><div class="side-copy right">KEEP ROLLIN'</div>
+      <div class="hero-content">
+        <img src="assets/daice-symbol.png" class="hero-symbol" alt="Da-iCE symbol">
+        <h1 class="hero-name">Da-iCE</h1><div class="hero-sub">FIVE DIMENSIONS</div>
+        <div class="hero-jp">5人が生み出す、無限の音楽。</div><a href="#about" class="hero-scroll">SCROLL</a>
+      </div>
+    </section>
+
+    <section class="section" id="about"><div class="container">
+      <div class="about-grid reveal">
+        <div class="about-copy"><div class="eyebrow">01 / ABOUT Da-iCE</div><div class="script"># Da-iCE</div>
+          <p>4オクターブのツインボーカルを中心に、高い歌唱力とパフォーマンスで人々を魅了する5人組。メンバーそれぞれが作詞・作曲・プロデュースにも携わり、唯一無二の音楽を生み出し続けている。</p>
+          <a href="#members" class="outline-btn">VIEW THE FIVE →</a>
+        </div>
+        <div class="about-visual"><img src="assets/about-live.png" alt="Da-iCE live performance"></div>
+      </div>
+    </div></section>
+
+    <section class="section" id="members"><div class="container">
+      <div class="section-head reveal"><div><div class="eyebrow">02 / MEMBER</div><h2 class="section-title">THE FIVE</h2></div><p class="lead">5人それぞれの表情と個性を、そのままカードに。クリックすると詳細が開きます。</p></div>
+      <div class="member-strip">
+        <article class="member-card reveal" data-member="taiki"><img class="member-photo" src="assets/taiki.jpg" alt="工藤大輝"><div class="member-shade"></div><div class="member-info"><div class="member-en">TAIKI KUDO</div><div class="member-jp">工藤 大輝</div><div class="member-role">PERFORMER</div><span class="view-more">VIEW MORE →</span></div></article>
+        <article class="member-card reveal" data-member="toru"><img class="member-photo" src="assets/toru.jpg" alt="岩岡徹"><div class="member-shade"></div><div class="member-info"><div class="member-en">TORU IWAOKA</div><div class="member-jp">岩岡 徹</div><div class="member-role">PERFORMER</div><span class="view-more">VIEW MORE →</span></div></article>
+        <article class="member-card reveal" data-member="yudai"><img class="member-photo" src="assets/yudai.jpg" alt="大野雄大"><div class="member-shade"></div><div class="member-info"><div class="member-en">YUDAI OHNO</div><div class="member-jp">大野 雄大</div><div class="member-role">VOCALIST</div><span class="view-more">VIEW MORE →</span></div></article>
+        <article class="member-card reveal" data-member="sota"><img class="member-photo" src="assets/sota.jpg" alt="花村想太"><div class="member-shade"></div><div class="member-info"><div class="member-en">SOTA HANAMURA</div><div class="member-jp">花村 想太</div><div class="member-role">VOCALIST</div><span class="view-more">VIEW MORE →</span></div></article>
+        <article class="member-card reveal" data-member="hayate"><img class="member-photo" src="assets/hayate.jpg" alt="和田颯"><div class="member-shade"></div><div class="member-info"><div class="member-en">HAYATE WADA</div><div class="member-jp">和田 颯</div><div class="member-role">PERFORMER</div><span class="view-more">VIEW MORE →</span></div></article>
+      </div>
+    </div></section>
+
+    <section class="section" id="music"><div class="container">
+      <div class="section-head reveal"><div><div class="eyebrow">03 / MUSIC</div><h2 class="section-title">ENTER THE SOUND</h2></div><p class="lead">すべてのカードから公式YouTubeへ移動できます。</p></div>
+      <div class="music-row">
+        <article class="music-card reveal"><div class="cover citrus"><span class="cover-title">CITRUS</span></div><div class="music-meta"><h3>CITRUS</h3><small>EMOTIONAL / VOCAL</small><div class="music-bottom"><a class="play" href="https://www.youtube.com/watch?v=ye1YacA8HvE" target="_blank" rel="noopener"></a></div></div></article>
+        <article class="music-card reveal"><div class="cover star"><span class="cover-title">スターマイン</span></div><div class="music-meta"><h3>スターマイン</h3><small>FESTIVAL / LIVE</small><div class="music-bottom"><a class="play" href="https://www.youtube.com/watch?v=YB_St-YN3Y8" target="_blank" rel="noopener"></a></div></div></article>
+        <article class="music-card reveal"><div class="cover wonder"><span class="cover-title">I wonder</span></div><div class="music-meta"><h3>I wonder</h3><small>COLOR / DANCE</small><div class="music-bottom"><a class="play" href="https://www.youtube.com/results?search_query=Da-iCE+I+wonder+official" target="_blank" rel="noopener"></a></div></div></article>
+        <article class="music-card reveal"><div class="cover kartell"><span class="cover-title">Kartell</span></div><div class="music-meta"><h3>Kartell</h3><small>DARK / MESSAGE</small><div class="music-bottom"><a class="play" href="https://www.youtube.com/results?search_query=Da-iCE+Kartell+official" target="_blank" rel="noopener"></a></div></div></article>
+        <article class="music-card reveal"><div class="cover back"><span class="cover-title">BACK TO BACK</span></div><div class="music-meta"><h3>BACK TO BACK</h3><small>DANCE / EDGE</small><div class="music-bottom"><a class="play" href="https://www.youtube.com/results?search_query=Da-iCE+BACK+TO+BACK+official" target="_blank" rel="noopener"></a></div></div></article>
+      </div>
+    </div></section>
+
+    <section class="section" id="history"><div class="container">
+      <div class="section-head reveal"><div><div class="eyebrow">04 / HISTORY</div><h2 class="section-title">THE ROAD</h2></div></div>
+      <div class="history-wrap reveal"><div class="history-line">
+        <div class="history-item"><strong>2011</strong><span>Da-iCE 結成</span></div><div class="history-item"><strong>2014</strong><span>メジャーデビュー</span></div>
+        <div class="history-item"><strong>2017</strong><span>日本武道館公演</span></div><div class="history-item"><strong>2020</strong><span>「CITRUS」リリース</span></div>
+        <div class="history-item"><strong>2021</strong><span>日本レコード大賞受賞</span></div><div class="history-item"><strong>NOW</strong><span>AND MORE TO COME</span></div>
+      </div></div>
+    </div></section>
+
+    <section class="section"><div class="container"><div class="notice reveal"><div class="eyebrow">UNOFFICIAL FAN SITE</div><h3>Made by fans, for fans.</h3><p class="lead">本サイトはDa-iCEを応援する目的で制作された非公式ファンメイドサイトです。Da-iCE、所属事務所、レコード会社、その他関係各社とは関係ありません。</p></div></div></section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — Da-iCE UNOFFICIAL FAN SITE</span><span>VER. 3.0 / 2026</span></div></footer>
+
+  <div class="modal" id="memberModal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="close" id="modalClose" aria-label="閉じる">×</button>
+      <div class="modal-visual">
+        <img class="modal-photo" id="modalPhoto" src="" alt="">
+        <div class="modal-number" id="modalNumber">01</div>
+      </div>
+      <div class="modal-content">
+        <div class="modal-role" id="modalRole"></div>
+        <div class="modal-catch" id="modalCatch"></div>
+        <h3 id="modalName"></h3>
+        <div class="modal-en" id="modalEn"></div>
+        <div class="modal-divider"></div>
+        <p class="modal-text" id="modalText"></p>
+        <div class="member-detail-grid">
+          <div class="detail-box"><small>CORE</small><strong id="modalCore"></strong></div>
+          <div class="detail-box"><small>ON STAGE</small><strong id="modalStage"></strong></div>
+          <div class="detail-box"><small>RECOMMENDED</small><strong id="modalSong"></strong></div>
+        </div>
+        <div class="modal-nav">
+          <button id="memberPrev">← PREVIOUS</button>
+          <button id="memberNext">NEXT →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load",()=>setTimeout(()=>document.getElementById("opening").classList.add("hide"),1700));
+    const nav=document.getElementById("nav");window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>40));
+    const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
+    menuBtn.addEventListener("click",()=>{menuBtn.classList.toggle("open");navLinks.classList.toggle("open")});
+    navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{menuBtn.classList.remove("open");navLinks.classList.remove("open")}));
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+    const memberOrder=["taiki","toru","yudai","sota","hayate"];
+    const members={
+      taiki:{
+        no:"01",photo:"assets/taiki.jpg",role:"PERFORMER / CREATOR",
+        name:"工藤 大輝",en:"TAIKI KUDO",
+        catch:"音楽を選び、言葉を紡ぎ、Da-iCEの未来を設計する。",
+        text:"グループ全体を俯瞰する鋭い視点と、深い音楽愛を持つクリエイター。ステージでは緻密な表現と自然体の存在感を両立し、作品づくりではDa-iCEの可能性を外へ広げていく。",
+        core:"選曲・作詞・作曲・プロデュース",
+        stage:"音を細部まで捉える知的なパフォーマンス",
+        song:"工藤大輝の制作視点が光る楽曲"
+      },
+      toru:{
+        no:"02",photo:"assets/toru.jpg",role:"PERFORMER",
+        name:"岩岡 徹",en:"TORU IWAOKA",
+        catch:"静かな知性の奥に、誰より熱いステージへの意志を宿す。",
+        text:"洗練された佇まいと、細部まで丁寧に作り込まれた表現が魅力。落ち着いた空気の中に遊び心を持ち、5人のバランスを整えながら、ステージでは確かな熱量を残す。",
+        core:"知性・品格・安定感",
+        stage:"繊細さと力強さを行き来する表現",
+        song:"大人の色気が映えるダンスナンバー"
+      },
+      yudai:{
+        no:"03",photo:"assets/yudai.jpg",role:"VOCALIST",
+        name:"大野 雄大",en:"YUDAI OHNO",
+        catch:"温度のある声で、会場全体をひとつに包み込む。",
+        text:"厚みと温かさを持つ歌声で、楽曲の土台と感情を支えるボーカリスト。ライブでは圧倒的な安定感と対応力を見せ、親しみやすい人柄も含めて会場の空気を自然に動かしていく。",
+        core:"歌唱力・包容力・ライブ対応力",
+        stage:"会場を巻き込む力強く温かなボーカル",
+        song:"声の深みを味わえるバラード"
+      },
+      sota:{
+        no:"04",photo:"assets/sota.jpg",role:"VOCALIST / CREATOR",
+        name:"花村 想太",en:"SOTA HANAMURA",
+        catch:"突き抜ける声で、楽曲の感情を限界まで解放する。",
+        text:"高音域を自在に操る歌唱力と、物語を一気に立ち上げる表現力を持つボーカリスト。作詞・作曲でもグループの核を担い、鋭さと繊細さの両方でDa-iCEの音楽を前進させる。",
+        core:"ハイトーン・作詞・作曲",
+        stage:"一瞬で空気を変える爆発的な表現力",
+        song:"ツインボーカルの頂点を味わえる楽曲"
+      },
+      hayate:{
+        no:"05",photo:"assets/hayate.jpg",role:"PERFORMER",
+        name:"和田 颯",en:"HAYATE WADA",
+        catch:"一つひとつの音を、身体で見える形へ変えていく。",
+        text:"スピード、精度、しなやかさを高い次元で併せ持つパフォーマー。派手さだけではなく、楽曲のニュアンスや空気まで踊りに落とし込み、Da-iCEのステージ全体を引き締める。",
+        core:"ダンス・精度・身体表現",
+        stage:"音の粒まで可視化する研ぎ澄まされた動き",
+        song:"ダンスの細部まで見たくなる楽曲"
+      }
+    };
+    const modal=document.getElementById("memberModal");
+    let currentMember="taiki";
+    function renderMember(key){
+      const m=members[key];
+      currentMember=key;
+      modalPhoto.src=m.photo;
+      modalPhoto.alt=m.name;
+      modalNumber.textContent=m.no;
+      modalRole.textContent=m.role;
+      modalCatch.textContent=m.catch;
+      modalName.textContent=m.name;
+      modalEn.textContent=m.en;
+      modalText.textContent=m.text;
+      modalCore.textContent=m.core;
+      modalStage.textContent=m.stage;
+      modalSong.textContent=m.song;
+    }
+    document.querySelectorAll(".member-card").forEach(card=>card.addEventListener("click",()=>{
+      renderMember(card.dataset.member);
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden","false");
+      document.body.classList.add("lock");
+    }));
+    function closeModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden","true");
+      document.body.classList.remove("lock");
+    }
+    document.getElementById("memberPrev").addEventListener("click",()=>{
+      const i=memberOrder.indexOf(currentMember);
+      renderMember(memberOrder[(i-1+memberOrder.length)%memberOrder.length]);
+    });
+    document.getElementById("memberNext").addEventListener("click",()=>{
+      const i=memberOrder.indexOf(currentMember);
+      renderMember(memberOrder[(i+1)%memberOrder.length]);
+    });
+    document.getElementById("modalClose").addEventListener("click",closeModal);
+    modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+    document.addEventListener("keydown",e=>{
+      if(e.key==="Escape")closeModal();
+      if(modal.classList.contains("open")&&e.key==="ArrowLeft")document.getElementById("memberPrev").click();
+      if(modal.classList.contains("open")&&e.key==="ArrowRight")document.getElementById("memberNext").click();
+    });
+  </script>
+</body>
+</html>
