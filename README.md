@@ -1,6 +1,6 @@
 # FIVE DIMENSIONS — Da-iCE Unofficial Fan Site
 
-## Ver.4.1
+## Ver.5.0
 - GitHub Pages向けにHTML / CSS / JavaScriptを分離
 - assetsをlogos / members / live / musicに整理
 - ロゴをSVG化し、本来の赤・濃茶・白の色味へ修正
@@ -16,3 +16,8 @@ GitHub DesktopでCommit → Push originを行います。
 - ユーザー提供の正式ロゴ画像を元データとして使用
 - トップ、ナビ、オープニングのロゴを同一画像由来に統一
 - 再構成SVGを廃止し、色味と形状の差異を解消
+
+- MEMBER ARCHIVEを独立ページとして追加
+- 5人を切り替えて閲覧できるメンバー専用画面を追加
+- 各メンバー専用アクセントカラーを追加
+- トップページとMUSICページのMEMBER導線を更新

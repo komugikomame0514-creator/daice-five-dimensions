@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Da-iCEの5人を紹介する非公式ファンメイド・メンバーアーカイブ">
+  <title>MEMBER ARCHIVE | FIVE DIMENSIONS</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/members.css">
+</head>
+<body>
+  <nav class="site-nav scrolled">
+    <div class="container nav-inner">
+      <a href="../" class="nav-brand"><img src="../assets/logos/daice-symbol.png" alt=""><span>Da-iCE</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../">TOP</a>
+        <a href="../#about">ABOUT</a>
+        <a class="active" href="./">MEMBER</a>
+        <a href="../music/">MUSIC</a>
+        <a href="../#history">HISTORY</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="members-page">
+    <div class="container">
+      <header class="members-hero reveal">
+        <div>
+          <div class="eyebrow">MEMBER ARCHIVE / VER. 5.0</div>
+          <h1>MEET<br><span>THE FIVE</span></h1>
+        </div>
+        <p class="members-intro">同じステージに立ちながら、5人の色は決して同じではない。歌声、ダンス、創作、知性、温度。その違いが交差した瞬間に、Da-iCEだけの輪郭が生まれる。</p>
+      </header>
+
+      <section class="member-selector reveal">
+        <button class="selector-card active" data-key="taiki">
+          <img src="../assets/members/taiki.jpg" alt="工藤大輝">
+          <span class="selector-meta"><strong>TAIKI KUDO</strong><span>工藤 大輝</span></span>
+        </button>
+        <button class="selector-card" data-key="toru">
+          <img src="../assets/members/toru.jpg" alt="岩岡徹">
+          <span class="selector-meta"><strong>TORU IWAOKA</strong><span>岩岡 徹</span></span>
+        </button>
+        <button class="selector-card" data-key="yudai">
+          <img src="../assets/members/yudai.jpg" alt="大野雄大">
+          <span class="selector-meta"><strong>YUDAI OHNO</strong><span>大野 雄大</span></span>
+        </button>
+        <button class="selector-card" data-key="sota">
+          <img src="../assets/members/sota.jpg" alt="花村想太">
+          <span class="selector-meta"><strong>SOTA HANAMURA</strong><span>花村 想太</span></span>
+        </button>
+        <button class="selector-card" data-key="hayate">
+          <img src="../assets/members/hayate.jpg" alt="和田颯">
+          <span class="selector-meta"><strong>HAYATE WADA</strong><span>和田 颯</span></span>
+        </button>
+      </section>
+
+      <section class="member-stage reveal" id="memberStage">
+        <div class="stage-photo">
+          <img id="stagePhoto" src="../assets/members/taiki.jpg" alt="工藤大輝">
+          <div class="stage-number" id="stageNumber">01</div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-role" id="stageRole">PERFORMER / CREATOR</div>
+          <div class="stage-catch" id="stageCatch"></div>
+          <h2 class="stage-name" id="stageName"></h2>
+          <div class="stage-en" id="stageEn"></div>
+          <div class="stage-divider"></div>
+          <p class="stage-text" id="stageText"></p>
+
+          <div class="stage-grid">
+            <div class="stage-box"><small>CORE</small><strong id="stageCore"></strong></div>
+            <div class="stage-box"><small>ON STAGE</small><strong id="stagePerformance"></strong></div>
+            <div class="stage-box"><small>RECOMMENDED</small><strong id="stageRecommended"></strong></div>
+          </div>
+
+          <div class="stage-nav">
+            <button id="stagePrev">← PREVIOUS</button>
+            <button id="stageNext">NEXT →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="member-values reveal">
+        <div class="value-card"><span>01 / CREATION</span><strong>音楽を作り、選び、Da-iCEの世界を広げる。</strong></div>
+        <div class="value-card"><span>02 / VOCAL</span><strong>異なる二つの声が、一曲の感情を立体化する。</strong></div>
+        <div class="value-card"><span>03 / DANCE</span><strong>音の輪郭を身体で描き、ステージを完成させる。</strong></div>
+        <div class="value-card"><span>04 / BALANCE</span><strong>5人の違いを消さず、ひとつのグループへ束ねる。</strong></div>
+        <div class="value-card"><span>05 / LIVE</span><strong>積み重ねた経験を、その日だけの熱狂へ変える。</strong></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>FIVE DIMENSIONS — MEMBER ARCHIVE</span>
+      <span>VER. 5.0 / 2026</span>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/members-page.js"></script>
+</body>
+</html>
