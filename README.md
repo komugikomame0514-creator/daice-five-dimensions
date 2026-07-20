@@ -1,6 +1,6 @@
 # FIVE DIMENSIONS — Da-iCE Unofficial Fan Site
 
-## Ver.5.0
+## Ver.6.0
 - GitHub Pages向けにHTML / CSS / JavaScriptを分離
 - assetsをlogos / members / live / musicに整理
 - ロゴをSVG化し、本来の赤・濃茶・白の色味へ修正
@@ -21,3 +21,10 @@ GitHub DesktopでCommit → Push originを行います。
 - 5人を切り替えて閲覧できるメンバー専用画面を追加
 - 各メンバー専用アクセントカラーを追加
 - トップページとMUSICページのMEMBER導線を更新
+
+- LIVE MUSEUMを新設
+- BET / REVERSi / SCENE / MUSi-aM / EntranCE / TERMiNaLを収録
+- ツアー選択、詳細表示、SHOW FLOW、KEY MOMENTSを追加
+- 公式ページへの導線を追加
+- 全ナビゲーションへLIVEを追加
+- メンバー写真を3倍解像度へ高品質リサイズし、輪郭・コントラストを補正

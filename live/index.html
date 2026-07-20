@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Da-iCEのライブの歩みを体験する非公式ファンメイドLIVE MUSEUM">
+  <title>LIVE MUSEUM | FIVE DIMENSIONS</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/live.css">
+</head>
+<body>
+  <nav class="site-nav scrolled">
+    <div class="container nav-inner">
+      <a href="../" class="nav-brand"><img src="../assets/logos/daice-symbol.png" alt=""><span>Da-iCE</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="../">TOP</a><a href="../#about">ABOUT</a><a href="../members/">MEMBER</a>
+        <a href="../music/">MUSIC</a><a class="active" href="./">LIVE</a><a href="../#history">HISTORY</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main class="live-page">
+    <section class="live-opening">
+      <div class="opening-lights"><span class="opening-light"></span><span class="opening-light"></span><span class="opening-light"></span><span class="opening-light"></span><span class="opening-light"></span></div>
+      <div class="led-screen">
+        <div class="led-kicker">FIVE DIMENSIONS PRESENTS</div>
+        <h1>LIVE<span>MUSEUM</span></h1>
+        <div class="led-copy">EXPERIENCE THE STAGE / TRACE THE HISTORY</div>
+      </div>
+    </section>
+
+    <section class="live-main">
+      <div class="container">
+        <header class="live-intro reveal">
+          <div><div class="eyebrow">LIVE ARCHIVE / VER. 6.0</div><h2>ENTER<br><span>THE LIVE</span></h2></div>
+          <p>Da-iCEのライブは、ただ曲を披露する場所ではない。時代ごとのコンセプト、照明、映像、ダンス、二つの声が交差し、その瞬間だけの物語を作る。まずは6つのツアーから、その歩みをたどります。</p>
+        </header>
+
+        <section class="tour-grid"><article class="tour-card reveal" data-tour="bet" style="--accent:#c89f57">
+      <div class="tour-poster" style="--poster:radial-gradient(circle at 50% 38%,rgba(255,215,135,.32),transparent 20%),linear-gradient(145deg,#4b3820,#080705 65%)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2019</div>
+      <div class="tour-meta"><small>ANNIVERSARY TOUR</small><h3>BET</h3><p>5th Anniversary</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article><article class="tour-card reveal" data-tour="reversi" style="--accent:#f1f1f1">
+      <div class="tour-poster" style="--poster:conic-gradient(from 45deg,#f0f0f0,#171717,#ededed,#050505,#f0f0f0)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2022</div>
+      <div class="tour-meta"><small>ARENA TOUR</small><h3>REVERSi</h3><p>Black / White / Reverse</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article><article class="tour-card reveal" data-tour="scene" style="--accent:#697aff">
+      <div class="tour-poster" style="--poster:radial-gradient(circle at 68% 30%,rgba(120,145,255,.6),transparent 22%),linear-gradient(145deg,#161c46,#070819 63%)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2023</div>
+      <div class="tour-meta"><small>ARENA TOUR</small><h3>SCENE</h3><p>6 Cities / 12 Shows</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article><article class="tour-card reveal" data-tour="musiam" style="--accent:#dcaa28">
+      <div class="tour-poster" style="--poster:radial-gradient(circle at 50% 42%,rgba(255,205,62,.35),transparent 18%),repeating-radial-gradient(circle at 50% 50%,#201805 0 10px,#080702 11px 22px)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2024</div>
+      <div class="tour-meta"><small>10TH ANNIVERSARY</small><h3>MUSi-aM</h3><p>Music × Museum</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article><article class="tour-card reveal" data-tour="entrance" style="--accent:#29a8ff">
+      <div class="tour-poster" style="--poster:linear-gradient(90deg,transparent 47%,rgba(40,173,255,.65) 48%,transparent 51%),linear-gradient(#050a14,#092e49 58%,#020305)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2025</div>
+      <div class="tour-meta"><small>ARENA TOUR</small><h3>EntranCE</h3><p>4 Cities / 8 Shows</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article><article class="tour-card reveal" data-tour="terminal" style="--accent:#e6001a">
+      <div class="tour-poster" style="--poster:radial-gradient(circle at 70% 30%,rgba(255,30,58,.38),transparent 20%),linear-gradient(135deg,#4b0010,#110005 60%,#020202)"></div><div class="tour-shade"></div>
+      <div class="tour-year">2026</div>
+      <div class="tour-meta"><small>ARENA TOUR</small><h3>TERMiNaL</h3><p>15th Anniversary Era</p><span class="enter-live">ENTER LIVE →</span></div>
+    </article></section>
+
+        <section class="live-detail reveal" id="liveDetail">
+          <div class="detail-hero">
+            <div class="detail-heading"><small id="detailType"></small><h3 id="detailTitle"></h3><p id="detailSubtitle"></p></div>
+          </div>
+          <div class="detail-body">
+            <div class="detail-summary">
+              <div><p class="detail-story" id="detailStory"></p><p class="detail-copy" id="detailCopy"></p><a class="official-link" id="officialTour" href="#" target="_blank" rel="noopener">OFFICIAL INFORMATION ↗</a></div>
+              <div class="fact-grid">
+                <div class="fact-box"><small>SCALE</small><strong id="factScale"></strong></div>
+                <div class="fact-box"><small>YEAR</small><strong id="factPeriod"></strong></div>
+                <div class="fact-box"><small>STATUS</small><strong id="factStatus"></strong></div>
+                <div class="fact-box"><small>MEDIA</small><strong id="factMedia"></strong></div>
+              </div>
+            </div>
+            <div class="experience-grid">
+              <div class="setlist-panel"><div class="panel-title"><h4>SHOW FLOW</h4><span>EXPERIENCE MAP</span></div><ol class="setlist-flow" id="setlistFlow"></ol></div>
+              <div class="moments-panel"><div class="panel-title"><h4>KEY MOMENTS</h4><span>FAN VIEW</span></div><div id="momentsList"></div></div>
+            </div>
+            <div class="live-note">セットリストや個別の名場面は、公式資料などで確認できた内容のみ今後追加します。現段階の「SHOW FLOW」はツアーの世界観を体験するための構成イメージです。</div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — LIVE MUSEUM</span><span>VER. 6.0 / 2026</span></div></footer>
+  <script src="../js/main.js"></script><script src="../js/live.js"></script>
+</body>
+</html>
