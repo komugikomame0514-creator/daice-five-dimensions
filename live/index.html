@@ -33,7 +33,7 @@
     <section class="live-main">
       <div class="container">
         <header class="live-intro reveal">
-          <div><div class="eyebrow">LIVE ARCHIVE / VER. 6.1</div><h2>ENTER<br><span>THE LIVE</span></h2></div>
+          <div><div class="eyebrow">LIVE ARCHIVE / VER. 6.2</div><h2>ENTER<br><span>THE LIVE</span></h2></div>
           <p>Da-iCEのライブは、ただ曲を披露する場所ではない。時代ごとのコンセプト、照明、映像、ダンス、二つの声が交差し、その瞬間だけの物語を作る。まずは6つのツアーから、その歩みをたどります。</p>
         </header>
 
@@ -76,9 +76,38 @@
 </div></section>
       </div>
     </section>
+
+        <section class="live-gallery-section reveal" id="gallery">
+          <header class="gallery-head">
+            <div><div class="eyebrow">OFFICIAL VISUAL ARCHIVE / VER. 6.2</div><h3>LIVE<br><span>GALLERY</span></h3></div>
+            <p>公式サイトで公開されたツアービジュアルを中心に、全景・メンバー・ツアールート・限定プレートパスを展示。写真をクリックすると全画面で細部まで見ることができます。</p>
+          </header>
+          <div class="gallery-filter"><button class="active" data-filter="all">ALL</button><button data-filter="entrance">EntranCE</button><button data-filter="terminal">TERMiNaL</button></div>
+          <div class="gallery-grid">
+            <article class="gallery-item" data-tour="entrance" data-title="EntranCE Official Visual" data-text="4都市8公演を告知した公式ツアービジュアル。白いスーツケースと空港のような空間が“入口”というコンセプトを表現している。"><img src="../assets/live-gallery/entrance_full.jpg" alt="EntranCE公式ビジュアル"><div class="gallery-caption"><small>EntranCE / OFFICIAL</small><strong>OFFICIAL TOUR VISUAL</strong></div></article>
+            <article class="gallery-item" data-tour="terminal" data-title="TERMiNaL Tour Route" data-text="全国10都市20公演を一本の航路として描いた公式ルートビジュアル。次のステージへ向かう旅を視覚化している。"><img src="../assets/live-gallery/terminal_route_full.jpg" alt="TERMiNaLツアールート"><div class="gallery-caption"><small>TERMiNaL / OFFICIAL</small><strong>TOUR ROUTE</strong></div></article>
+            <article class="gallery-item" data-tour="entrance" data-title="Five Members at the Entrance" data-text="公式ビジュアルから5人の佇まいを中心に展示。異なるスタイリングを一つの構図へまとめている。"><img src="../assets/live-gallery/entrance_members.jpg" alt="EntranCEメンバービジュアル"><div class="gallery-caption"><small>EntranCE / MEMBERS</small><strong>THE FIVE</strong></div></article>
+            <article class="gallery-item" data-tour="terminal" data-title="Special Acrylic Pass" data-text="公演ごとに写真・日付・会場名が異なる全20種類のアクリル製プレートパス。その表裏デザインを確認できる公式サンプル。"><img src="../assets/live-gallery/terminal_pass_full.jpg" alt="TERMiNaLアクリル製プレートパス"><div class="gallery-caption"><small>TERMiNaL / ITEM</small><strong>SPECIAL ACRYLIC PASS</strong></div></article>
+            <article class="gallery-item" data-tour="terminal" data-title="Departure Map" data-text="福岡から北海道へ伸びるルートを拡大。各都市が未来へ向かう出発地点として表現されている。"><img src="../assets/live-gallery/terminal_route_map.jpg" alt="TERMiNaL日本ツアーマップ"><div class="gallery-caption"><small>TERMiNaL / ROUTE</small><strong>ALL OVER JAPAN</strong></div></article>
+            <article class="gallery-item" data-tour="entrance" data-title="EntranCE Portrait Composition" data-text="公式ビジュアル中央部を縦構図で切り出し、5人とスーツケースの立体的な配置を強調した展示。"><img src="../assets/live-gallery/entrance_center.jpg" alt="EntranCE中央構図"><div class="gallery-caption"><small>EntranCE / DETAIL</small><strong>CREAT & EXPAND</strong></div></article>
+            <article class="gallery-item" data-tour="terminal" data-title="Pass Front Visual" data-text="メンバーの公式ビジュアルを使用したプレートパス表面。TERMiNaLのロゴとツアー世界観が一枚に凝縮されている。"><img src="../assets/live-gallery/terminal_pass_front.jpg" alt="TERMiNaLプレートパス表面"><div class="gallery-caption"><small>TERMiNaL / PASS</small><strong>FRONT SIDE</strong></div></article>
+            <article class="gallery-item" data-tour="terminal" data-title="Twenty Destinations" data-text="全20公演の日程と会場を刻んだプレートパス裏面。ツアーを巡った記録そのものがデザインになっている。"><img src="../assets/live-gallery/terminal_pass_detail.jpg" alt="TERMiNaLプレートパス裏面"><div class="gallery-caption"><small>TERMiNaL / PASS</small><strong>20 DESTINATIONS</strong></div></article>
+          </div>
+          <p class="gallery-source">Images: Da-iCE Official Website / Official Tour Visuals. 各画像の権利は権利者に帰属します。<a href="https://da-ice.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a></p>
+        </section>
+
   </main>
 
-  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — LIVE MUSEUM</span><span>VER. 6.1 / 2026</span></div></footer>
-  <script src="../js/main.js"></script><script src="../js/live.js"></script>
+  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — LIVE MUSEUM</span><span>VER. 6.2 / 2026</span></div></footer>
+  
+  <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">×</button>
+    <div class="lightbox-inner"><div class="lightbox-image"><img id="lightboxImg" src="" alt=""></div>
+      <aside class="lightbox-info"><small id="lightboxTour"></small><h4 id="lightboxTitle"></h4><p id="lightboxText"></p>
+      <div class="lightbox-nav"><button id="lightboxPrev">← PREV</button><button id="lightboxNext">NEXT →</button></div></aside>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script><script src="../js/live.js"></script><script src="../js/gallery.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # FIVE DIMENSIONS — Da-iCE Unofficial Fan Site
 
-## Ver.6.1
+## Ver.6.2
 - GitHub Pages向けにHTML / CSS / JavaScriptを分離
 - assetsをlogos / members / live / musicに整理
 - ロゴをSVG化し、本来の赤・濃茶・白の色味へ修正
@@ -36,3 +36,11 @@ GitHub DesktopでCommit → Push originを行います。
 - EntranCE映像作品の価格・収録内容を追加
 - TERMiNaLツアーファイナル配信情報を追加
 - EXPERIENCE MAP、ARCHIVE POINTS、ERA BRIDGEを追加
+
+- Da-iCEシンボルを赤1マス＋白4マスの配色へ修正
+- LIVE GALLERYを追加
+- EntranCE・TERMiNaLの公式ツアービジュアルを収録
+- 8種類の展示レイアウトを追加
+- ALL / EntranCE / TERMiNaLフィルターを追加
+- 全画面ライトボックス、左右移動、ESC終了を追加
+- 公式画像の出典・権利表記を追加
