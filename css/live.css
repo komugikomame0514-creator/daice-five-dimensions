@@ -238,3 +238,361 @@
 .gallery-item.is-hidden{display:none}
 @media(max-width:900px){.gallery-head{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:250px}.gallery-item,.gallery-item:nth-child(n){grid-column:span 1;grid-row:span 1}.gallery-item:first-child{grid-column:span 2}.lightbox-inner{grid-template-columns:1fr}.lightbox-info{border-left:0;border-top:1px solid #282828}}
 @media(max-width:560px){.gallery-grid{grid-template-columns:1fr;grid-auto-rows:270px}.gallery-item,.gallery-item:first-child{grid-column:span 1}.gallery-lightbox{padding:15px}.lightbox-image{min-height:350px}}
+
+
+/* =========================================
+   VER.6.3 — TERMiNaL TOUR MAP
+========================================= */
+.terminal-map-section{
+  position:relative;
+  margin-top:75px;
+  padding-top:70px;
+  border-top:1px solid var(--line);
+}
+.map-section-head{
+  display:grid;
+  grid-template-columns:1fr .78fr;
+  gap:45px;
+  align-items:end;
+  margin-bottom:30px;
+}
+.map-section-head h3{
+  margin:12px 0 0;
+  font-family:var(--serif);
+  font-size:clamp(3.2rem,7.5vw,7rem);
+  font-weight:400;
+  line-height:.82;
+}
+.map-section-head h3 span{
+  display:block;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.58);
+}
+.map-section-head p{margin:0;color:#999;line-height:2}
+.terminal-map-shell{
+  --map-accent:#e6001a;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);
+  min-height:760px;
+  border:1px solid #292b31;
+  background:
+    radial-gradient(circle at 72% 18%,rgba(230,0,26,.11),transparent 27rem),
+    linear-gradient(145deg,#08090c,#030304 68%);
+  overflow:hidden;
+}
+.terminal-map-shell::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to right,#000,transparent 78%);
+}
+.map-stage{
+  position:relative;
+  min-height:760px;
+  display:grid;
+  place-items:center;
+  padding:40px;
+  border-right:1px solid #24262b;
+  overflow:hidden;
+}
+.map-stage::after{
+  content:"";
+  position:absolute;
+  width:72%;
+  aspect-ratio:1;
+  border:1px solid rgba(230,0,26,.13);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 55px rgba(230,0,26,.025),
+    0 0 0 110px rgba(230,0,26,.018);
+  pointer-events:none;
+}
+.terminal-map-svg{
+  position:relative;
+  z-index:2;
+  width:min(100%,680px);
+  height:auto;
+  filter:drop-shadow(0 22px 50px rgba(0,0,0,.75));
+}
+.map-land{
+  fill:url(#mapLandGradient);
+  stroke:#666d78;
+  stroke-width:2;
+  vector-effect:non-scaling-stroke;
+}
+.map-route-shadow{
+  fill:none;
+  stroke:rgba(230,0,26,.15);
+  stroke-width:12;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:url(#routeBlur);
+}
+.map-route{
+  fill:none;
+  stroke:var(--map-accent);
+  stroke-width:3.4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:1500;
+  stroke-dashoffset:1500;
+  filter:url(#routeGlow);
+}
+.terminal-map-shell.route-ready .map-route{
+  animation:drawTerminalRoute 4.6s cubic-bezier(.45,0,.15,1) forwards;
+}
+@keyframes drawTerminalRoute{to{stroke-dashoffset:0}}
+.route-flight{
+  fill:#fff;
+  filter:url(#routeGlow);
+  opacity:0;
+}
+.terminal-map-shell.route-ready .route-flight{
+  animation:routeFlight 4.6s cubic-bezier(.45,0,.15,1) forwards;
+}
+@keyframes routeFlight{
+  0%{opacity:0}
+  5%{opacity:1}
+  96%{opacity:1}
+  100%{opacity:0}
+}
+.map-stop{
+  cursor:pointer;
+  outline:none;
+}
+.map-stop .stop-ring{
+  fill:rgba(3,3,4,.86);
+  stroke:#9ca3ad;
+  stroke-width:2;
+  transition:.3s;
+}
+.map-stop .stop-core{
+  fill:#fff;
+  transition:.3s;
+}
+.map-stop .stop-pulse{
+  fill:none;
+  stroke:var(--map-accent);
+  stroke-width:2;
+  opacity:0;
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.map-stop .stop-index{
+  fill:#a9adb5;
+  font-family:Georgia,serif;
+  font-size:12px;
+  text-anchor:middle;
+  pointer-events:none;
+}
+.map-stop:hover .stop-ring,
+.map-stop.active .stop-ring{
+  stroke:var(--map-accent);
+  filter:url(#routeGlow);
+}
+.map-stop:hover .stop-core,
+.map-stop.active .stop-core{fill:var(--map-accent)}
+.map-stop.active .stop-pulse{
+  animation:mapPulse 1.9s ease-out infinite;
+}
+@keyframes mapPulse{
+  0%{opacity:.8;transform:scale(.55)}
+  100%{opacity:0;transform:scale(2.15)}
+}
+.map-city-label{
+  fill:#d1d3d8;
+  font-size:13px;
+  letter-spacing:.06em;
+  paint-order:stroke;
+  stroke:#050506;
+  stroke-width:4;
+  stroke-linejoin:round;
+  pointer-events:none;
+}
+.map-city-label.active{fill:#fff}
+.map-compass{
+  position:absolute;
+  left:25px;
+  top:25px;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#777;
+  font-size:.55rem;
+  letter-spacing:.22em;
+}
+.compass-symbol{
+  width:38px;height:38px;
+  display:grid;place-items:center;
+  border:1px solid #333;
+  border-radius:50%;
+  color:#ccc;
+  font-family:var(--serif);
+}
+.map-progress{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:24px;
+  z-index:3;
+}
+.map-progress-head{
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:.56rem;
+  letter-spacing:.16em;
+  margin-bottom:9px;
+}
+.map-progress-track{
+  height:2px;
+  background:#25262a;
+  overflow:hidden;
+}
+.map-progress-fill{
+  width:0;
+  height:100%;
+  background:var(--map-accent);
+  box-shadow:0 0 13px rgba(230,0,26,.75);
+  transition:.45s;
+}
+.map-panel{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  padding:42px 34px 32px;
+  background:rgba(4,4,6,.82);
+  backdrop-filter:blur(16px);
+}
+.map-panel-kicker{
+  color:var(--map-accent);
+  font-size:.57rem;
+  letter-spacing:.26em;
+}
+.map-stop-count{
+  margin-top:14px;
+  color:#686b73;
+  font-family:var(--serif);
+  font-size:clamp(4rem,8vw,7.5rem);
+  line-height:.8;
+}
+.map-stop-count span{color:#26282d}
+.map-city{
+  margin:28px 0 6px;
+  font-family:var(--serif);
+  font-size:clamp(2.5rem,5vw,4.6rem);
+  font-weight:400;
+  line-height:.9;
+}
+.map-region{
+  color:#7d8189;
+  font-size:.62rem;
+  letter-spacing:.22em;
+}
+.map-divider{
+  width:72px;
+  height:1px;
+  background:var(--map-accent);
+  margin:28px 0;
+}
+.map-venue{
+  font-family:var(--serif);
+  font-size:1.35rem;
+  line-height:1.5;
+  font-weight:400;
+}
+.map-date{
+  margin-top:13px;
+  color:#aaa;
+  font-size:.72rem;
+  letter-spacing:.12em;
+}
+.map-tag{
+  display:inline-flex;
+  align-self:flex-start;
+  margin-top:17px;
+  padding:8px 11px;
+  border:1px solid color-mix(in srgb,var(--map-accent) 60%,#333);
+  color:#ddd;
+  font-size:.55rem;
+  letter-spacing:.16em;
+}
+.map-data-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:27px;
+}
+.map-data{
+  min-height:92px;
+  padding:16px;
+  border:1px solid #25272c;
+  background:rgba(255,255,255,.018);
+}
+.map-data small{
+  display:block;
+  color:#666b73;
+  font-size:.52rem;
+  letter-spacing:.16em;
+  margin-bottom:10px;
+}
+.map-data strong{
+  font-family:var(--serif);
+  font-size:1.4rem;
+  font-weight:400;
+}
+.map-controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:auto;
+  padding-top:32px;
+}
+.map-controls button{
+  border:1px solid #303239;
+  background:transparent;
+  color:#bbb;
+  padding:13px;
+  font-size:.58rem;
+  letter-spacing:.14em;
+  cursor:pointer;
+  transition:.25s;
+}
+.map-controls button:hover{
+  border-color:var(--map-accent);
+  color:#fff;
+}
+.map-autoplay{
+  grid-column:1/-1;
+}
+.map-autoplay.playing{
+  background:var(--map-accent);
+  border-color:var(--map-accent);
+  color:#fff;
+}
+.map-note{
+  margin-top:16px;
+  color:#666;
+  font-size:.62rem;
+  line-height:1.75;
+}
+@media(max-width:1000px){
+  .map-section-head{grid-template-columns:1fr}
+  .terminal-map-shell{grid-template-columns:1fr}
+  .map-stage{border-right:0;border-bottom:1px solid #24262b;min-height:680px}
+  .map-panel{min-height:540px}
+}
+@media(max-width:620px){
+  .map-stage{min-height:560px;padding:22px 12px 55px}
+  .map-panel{padding:32px 22px}
+  .map-city-label{font-size:11px}
+  .map-data-grid{grid-template-columns:1fr 1fr}
+}

@@ -1,6 +1,6 @@
 # FIVE DIMENSIONS — Da-iCE Unofficial Fan Site
 
-## Ver.6.2
+## Ver.6.3
 - GitHub Pages向けにHTML / CSS / JavaScriptを分離
 - assetsをlogos / members / live / musicに整理
 - ロゴをSVG化し、本来の赤・濃茶・白の色味へ修正
@@ -44,3 +44,14 @@ GitHub DesktopでCommit → Push originを行います。
 - ALL / EntranCE / TERMiNaLフィルターを追加
 - 全画面ライトボックス、左右移動、ESC終了を追加
 - 公式画像の出典・権利表記を追加
+
+- TERMiNaL TOUR MAPを追加
+- 日本列島を拡大しても崩れないSVGベクターで描画
+- 10都市20公演の開催順ルートを追加
+- ルート線が光りながら伸びるアニメーションを追加
+- 都市ポイントの発光・パルス演出を追加
+- 都市クリックで会場・日程・公演数を切り替える詳細パネルを追加
+- PREVIOUS / NEXT操作を追加
+- TOUR ROUTE自動再生モードを追加
+- キーボード操作とアクセシビリティラベルを追加
+- PCでは地図＋詳細の2カラム、スマホでは縦表示に対応

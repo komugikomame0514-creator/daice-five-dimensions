@@ -33,7 +33,7 @@
     <section class="live-main">
       <div class="container">
         <header class="live-intro reveal">
-          <div><div class="eyebrow">LIVE ARCHIVE / VER. 6.2</div><h2>ENTER<br><span>THE LIVE</span></h2></div>
+          <div><div class="eyebrow">LIVE ARCHIVE / VER. 6.3</div><h2>ENTER<br><span>THE LIVE</span></h2></div>
           <p>Da-iCEのライブは、ただ曲を披露する場所ではない。時代ごとのコンセプト、照明、映像、ダンス、二つの声が交差し、その瞬間だけの物語を作る。まずは6つのツアーから、その歩みをたどります。</p>
         </header>
 
@@ -77,6 +77,85 @@
       </div>
     </section>
 
+        
+        <section class="terminal-map-section reveal" id="terminalMap">
+          <header class="map-section-head">
+            <div>
+              <div class="eyebrow">TERMiNaL / TOUR ROUTE EXPERIENCE / VER. 6.3</div>
+              <h3>THE ROUTE<br><span>TO THE FUTURE</span></h3>
+            </div>
+            <p>福岡から北海道へ。10都市20公演を、開催順に光が走るインタラクティブマップで追体験。都市を選ぶと、その会場と日程がステージ情報として立ち上がります。</p>
+          </header>
+
+          <div class="terminal-map-shell" id="terminalMapShell">
+            <div class="map-stage">
+              <div class="map-compass"><span class="compass-symbol">N</span><span>JAPAN / 2026</span></div>
+
+              <svg class="terminal-map-svg" id="terminalMapSvg" viewBox="0 0 820 900" role="img" aria-labelledby="terminalMapTitle terminalMapDesc">
+                <title id="terminalMapTitle">Da-iCE ARENA TOUR 2026 TERMiNaL 開催都市マップ</title>
+                <desc id="terminalMapDesc">福岡、香川、宮城、新潟、東京、兵庫、神奈川、広島、愛知、北海道の開催順を示す日本地図。</desc>
+                <defs>
+                  <linearGradient id="mapLandGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#171a20"/>
+                    <stop offset=".55" stop-color="#0d0f13"/>
+                    <stop offset="1" stop-color="#08090c"/>
+                  </linearGradient>
+                  <filter id="routeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <filter id="routeBlur" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="9"/>
+                  </filter>
+                </defs>
+
+                <!-- Crisp stylized vector silhouette -->
+                <g class="map-land-group">
+                  <path class="map-land" d="M568 96c49 7 91 43 101 86-4 29-30 49-59 55-22-8-39-29-43-56-5-33-11-58 1-85Z"/>
+                  <path class="map-land" d="M548 239c25 13 43 32 54 58-10 35-26 67-45 98-28 45-55 89-83 132-23 36-44 73-69 106-22 29-51 53-84 69-24-10-41-31-44-58 14-31 39-55 60-80 36-43 70-88 102-134 31-44 61-89 89-135 9-16 14-37 20-56Z"/>
+                  <path class="map-land" d="M292 660c26 5 48 20 61 43-13 25-35 44-61 55-24-5-43-21-44-58 14-31 39-55 60-80Z" opacity="0"/>
+                  <path class="map-land" d="M292 660c26 5 48 20 61 43-13 25-35 44-61 55-24-5-43-21-51-43 8-26 25-45 51-55Z"/>
+                  <path class="map-land" d="M197 716c25 4 48 19 60 41-9 30-29 53-58 67-28-3-50-19-63-44 8-29 28-51 61-64Z"/>
+                  <path class="map-land" d="M95 768c24 5 44 19 55 40-7 25-24 45-50 57-26-4-45-19-56-41 7-25 23-44 51-56Z"/>
+                </g>
+
+                <path class="map-route-shadow" id="mapRouteShadow" d=""/>
+                <path class="map-route" id="mapRoute" d=""/>
+                <circle class="route-flight" id="routeFlight" r="6"/>
+                <g id="mapStops"></g>
+              </svg>
+
+              <div class="map-progress">
+                <div class="map-progress-head"><span>FUKUOKA</span><span>HOKKAIDO</span></div>
+                <div class="map-progress-track"><div class="map-progress-fill" id="mapProgressFill"></div></div>
+              </div>
+            </div>
+
+            <aside class="map-panel" aria-live="polite">
+              <div class="map-panel-kicker" id="mapKicker">TOUR DESTINATION</div>
+              <div class="map-stop-count"><span>0</span><b id="mapStopNumber">1</b></div>
+              <h4 class="map-city" id="mapCity">福岡</h4>
+              <div class="map-region" id="mapRegion">KYUSHU</div>
+              <div class="map-divider"></div>
+              <div class="map-venue" id="mapVenue">福岡国際センター</div>
+              <div class="map-date" id="mapDate">2026.01.24–25</div>
+              <div class="map-tag" id="mapTag">OPENING CITY</div>
+
+              <div class="map-data-grid">
+                <div class="map-data"><small>SHOWS</small><strong id="mapShows">2</strong></div>
+                <div class="map-data"><small>ROUTE</small><strong id="mapRouteIndex">01 / 10</strong></div>
+              </div>
+
+              <div class="map-controls">
+                <button type="button" id="mapPrev">← PREVIOUS</button>
+                <button type="button" id="mapNext">NEXT →</button>
+                <button type="button" class="map-autoplay" id="mapAutoplay">PLAY THE TOUR ROUTE</button>
+              </div>
+              <p class="map-note">ルート線は実際の鉄道・航空経路ではなく、公演の開催順を結ぶ演出演出です。</p>
+            </aside>
+          </div>
+        </section>
+
         <section class="live-gallery-section reveal" id="gallery">
           <header class="gallery-head">
             <div><div class="eyebrow">OFFICIAL VISUAL ARCHIVE / VER. 6.2</div><h3>LIVE<br><span>GALLERY</span></h3></div>
@@ -98,7 +177,7 @@
 
   </main>
 
-  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — LIVE MUSEUM</span><span>VER. 6.2 / 2026</span></div></footer>
+  <footer><div class="container footer-inner"><span>FIVE DIMENSIONS — LIVE MUSEUM</span><span>VER. 6.3 / 2026</span></div></footer>
   
   <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">×</button>
@@ -108,6 +187,6 @@
     </div>
   </div>
 
-  <script src="../js/main.js"></script><script src="../js/live.js"></script><script src="../js/gallery.js"></script>
+  <script src="../js/main.js"></script><script src="../js/live.js"></script><script src="../js/gallery.js"></script><script src="../js/terminal-map-data.js"></script><script src="../js/terminal-map.js"></script>
 </body>
 </html>
